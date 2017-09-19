@@ -1,6 +1,6 @@
 
 <?php require('top.php'); ?>
-
+<?php require('db_ops.php'); ?>
 <!-- main content -->
 <div class="page-container" >
   <form method='POST' name='exception' action='requestException_submit.php' enctype='multipart/form-data'>
@@ -15,19 +15,17 @@
 	<input type='text' name='user' />
 	<br/>
 
-	What server do you need withheld from the scheduled update?
-	<br/>
 
-	<br/>
-
-	<input id='serverselect' type='text' autocomplete='on' list='serverlist' style='width:95%;' />
-	  <button id='add' onclick='addListItem()' type='button'><a href=''></a></button>
-	  <datalist id='serverlist'>
-		  <option value="{{s}}">{{s}}</option>
-	  </datalist>
-
-	<!-- This will be hidden? -->
-	<input id='server' name='server' readonly>
+	<label for="servers">What server do you need withheld from the scheduled update?</label>
+    <select id="servers" name="server-select">
+    <?php
+        $id =$_GET['id'];
+        $servers = getChangeServers($id);
+        foreach($servers as $s) {
+           echo ("<option value='$s[servers]'>$s[servers]</option>");
+        }
+    ?>
+    </select>
 
 	<br/>
 
@@ -37,12 +35,12 @@
 	<br/>
 	<br/>
 
-	What would be an acceptible date and time to reschedule this update? <br/>
-	<input type='date' name='altDate' placeholder="alt date"/>
+	What would be an acceptible date and time to reschedule this update?
+	<input type='text' id='datepicker' name='altDate' placeholder=""/>
 
 	<br/>
 
-	<input type='time' name='altTime' placeholder="alt time"/>
+	<input type='time' name='altTime' placeholder=""/>
 
 	<br/>
 
@@ -51,6 +49,13 @@
 	</div>
   </form>
 </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>
 
 <!-- end main content -->
 

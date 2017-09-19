@@ -110,11 +110,10 @@ input, select, option {
   border-width: 0 0 1px 0;
   font-size: 1em;
   background-color: white;
-  width: 95%;
+  width: 90%;
 }
 
 select {
-  width: 100%;
   -webkit-appearance: none;
   -webkit-border-radius: 0px;
 }
@@ -125,9 +124,9 @@ select:focus, textarea:focus {
 
 textarea {
   resize: none;
-  border-width: 0 0 1px 0;
+  border-width: 1px;
   margin-bottom: 20px;
-  width: 95%;
+  width: 90%;
 
 }
 
