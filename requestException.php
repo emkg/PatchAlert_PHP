@@ -25,7 +25,7 @@
            echo ("<option value='$s[servers]'>$s[servers]</option>");
         }
     ?>
-    </select>
+    </select>      
 
 	<br/>
 

@@ -1,8 +1,8 @@
 <?php
-/*
-	$username = "";
-	$password = "";
-	$hostname = "";
+
+		$username = "admin";
+		$password = "local";
+		$hostname = "localhost";
 
   	//connection to the database
   	$db = new mysqli($hostname, $username, $password, "patchA");
@@ -33,5 +33,5 @@
 	}
 
   mysql_close($db);
-*/
+
 ?>

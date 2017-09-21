@@ -6,18 +6,18 @@
 <div class='page-container'>
 
 
-<?php
+<?php  
  $elements = getChangeElements(false);
- if ( $elements ) {
-
+ if ( $elements ) { 
+	  
 	foreach( $elements as $e ) {
 		echo $e;
-	}
-
-
-  } else {
-	echo($no_alerts_element);
-  }
+	} 
+	  
+	  
+  } else { 
+	echo($no_alerts_element); 
+  } 
 ?>
 
 <br/>
@@ -28,7 +28,7 @@
 </div>
 
 <!--close the connection -->
-<?php //mysql_close($dbhandle); ?>
+<?php mysql_close($dbhandle); ?>
 <!-- end main content -->
 
 
