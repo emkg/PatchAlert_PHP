@@ -1,8 +1,8 @@
 <?php
 
-		$username = "admin";
-		$password = "local";
-		$hostname = "localhost";
+	$username = "admin";
+	$password = "local";
+	$hostname = "localhost";
 
   	//connection to the database
   	$db = new mysqli($hostname, $username, $password, "patchA");

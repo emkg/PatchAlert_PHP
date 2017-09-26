@@ -94,18 +94,18 @@
             var available = options.filter(function (x) { return !selected.includes(x);});
 
             return e('div', {},
-                e('select', {multiple: true, name: 'servers', ref: this.attachAvailableRef},
+                e('select', {multiple: true, ref: this.attachAvailableRef},
                     available.map(function (x) { return e('option', {key: x.id, value: x.id}, x.name); })),
 
                
-                e('select', {id: 'added' , multiple: true, ref: this.attachSelectedRef},
-                    selected.map(function (x) { return e('option', {key: x.id, value: x.id}, x.name); })),
+                e('select', {id: 'added' , name: 'servers[]', multiple: true, selected: true, ref: this.attachSelectedRef},
+                    selected.map(function (x) { return e('option', {key: x.id, value: x.id, name: 'server'}, x.name); })),
                 e('div', {id: 'add', onClick: this.onAdd}, 'add'),
                 e('div', {id: 'rm', onClick: this.onRemove},'remove'),
                 
 
                 selected.map(function (x) {
-                    return e('input', {type:'hidden', key: x.id, value: x.id, name: name});
+                    return e('input', {type:'hidden', key: x.id, value: x.id, name: 'server[]'});
                 })
             );
         }

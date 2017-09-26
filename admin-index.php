@@ -3,17 +3,17 @@
 <!-- main content -->
 <div class='page-container'>
   <div class='item' style='padding: 20px'>
-
-<?php
+  
+<?php 
 
 $elements = getChangeElements(true);
 
 foreach( $elements as $e ) {
 	echo $e;
 }
-
+	
 ?>
-
+  
 
 <br/>
 
@@ -24,7 +24,7 @@ foreach( $elements as $e ) {
 </a>
 </div>
 </div>
-
+	
 <!-- end main content -->
 
 <?php require('bottom.php'); ?>

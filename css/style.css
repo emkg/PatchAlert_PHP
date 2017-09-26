@@ -235,7 +235,7 @@ input {
 .admin-item > .scrolly-list {
 	margin: 0;
 	height: 128px;
-	width: 50%;
+	width: 100%;
 }
 
 .scrolly-list-item {
