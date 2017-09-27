@@ -3,20 +3,20 @@
 <!-- main content -->
 <div class='page-container'>
   <form method='POST' name='change' enctype='multipart/form-data' action='createAlert_submit.php'>
-	  <h2>Set a date for the service:</h2>
+	  <h2>Set up an alert</h2>
 	  <br/>
-	  When will the service take place? <br/>
-	  <input type='text' id='datepicker' name='date' placeholder="date"/>
-	  From what time:<br/>
-	  <input type='time' name='startTime' placeholder="Start Time"/>
+	  On what day will the change take place? <br/>
+	  <input type='text' id='datepicker' name='date' placeholder=""/>
+	  <br/> At what time:<br/>
+	  <input type='time' name='time' placeholder=""/>
       <br/>
-	   Sign your name:
 	  <br/>
-	  <input type='text' name='user' />
+	  <input type='text' name='user' placeholder='Your name:' />
 	  <br/>
-	<div class='item' style='border: none;'>
-	  <input style='color: white;' class='button' type='submit' value="APPROVE"/>
-	</div>
+      <input hidden=true name='id' value=<?php echo($_GET['id']) ?> />
+      <div class='item' style='border: none;'>
+	      <input style='color: white;' class='button' type='submit' value="APPROVE"/>
+	  </div>
   </form>
 </div>
 <!-- end main content -->

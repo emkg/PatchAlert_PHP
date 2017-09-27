@@ -5,13 +5,11 @@
   <form method='POST' id='change' action='createChange_submit.php' enctype='multipart/form-data'>
 	  <h2>Request a change:</h2>
 	  <br/><br/>
-	  <input type='text' id='datepicker' name='date' placeholder="Today's Date:"/>
-	  <br/>
 	  What is the justification for why the request is being made, <br/>
 	  including any alternative approaches that were considered, <br/>
 	  and the implications of not making the change?
 	  <br/><br/>
-	  <textarea type='text' rows='4' name='justification'></textarea> <br/>
+	  <textarea type='text' rows='4' name='reason'></textarea> <br/>
 	  What servers will be affected? <br/><br/>
       <div id="multi-select-container" name="server-select">
       </div> 
@@ -28,8 +26,6 @@
   </form>
 </div>
 <!-- end main content -->
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.5.1/core.min.js"></script>
 <script src="https://unpkg.com/react@15.6.0/dist/react.min.js"></script>
 <script src="https://unpkg.com/react-dom@15.6.0/dist/react-dom.min.js"></script>
@@ -123,11 +119,6 @@
 
     ReactDOM.render(e(MultiSelect, { options: options }), document.getElementById('multi-select-container'));
 
-</script>
-<script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
 </script>
 
 <?php require('bottom.php'); ?>

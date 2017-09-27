@@ -24,15 +24,18 @@ $hostname = "localhost";
         $servers .= "$s ";
     }
     $servers .= "'";
+    $reason = $_POST['reason'];
+    $resources = $_POST['resources'];
 
 	$sql  = "INSERT into CHANGES SET";
 	$sql .= " date_created=CURRENT_TIMESTAMP(),";
 	$sql .= " createdBy='$user',";
-	$sql .= " servers=$servers";
-
+	$sql .= " servers=$servers,";
+	$sql .= " reason='$reason',";
+    $sql .= " resources='$resources'";
 
 	if ($db->query($sql)) {
-		echo "New record created successfully";
+		header('Location: https://intranet.nssl.noaa.gov/its/server-news/admin-index.php' );
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($db);
 	}

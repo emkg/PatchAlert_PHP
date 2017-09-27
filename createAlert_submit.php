@@ -17,22 +17,20 @@
 		}
 	}
 
-	$sql  = "INSERT into CHANGES SET";
+	$sql  = "UPDATE CHANGES SET";
 
 	$sql .= " date='" . $_POST['date'] . "',";
-	$sql .= " date_created=CURRENT_TIMESTAMP(),";
-	$sql .= " isApproved=0,";
-	$sql .= " isExpired=0,";
-	$sql .= " createdBy='" . $_POST['user'] . "',";
-  //$sql .= " approvedBy='" . $_POST['approvedBy'] . "',";
-	$sql .= " servers='" . $_POST['servers'] . "',";
-	$sql .= " time='" . $_POST['startTime'] . "'";
+	$sql .= " isApproved=1,";
+    $sql .= " approvedBy='" . $_POST['user'] . "',";
+    $sql .= " time='" . $_POST['time'] . "'";
+    $sql .= " WHERE id = " . $_POST['id'];
+
 
 
 
 
 	if ($db->query($sql)) {
-		echo "New record created successfully";
+		header('Location: https://intranet.nssl.noaa.gov/its/server-news/admin-index.php');
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($db);
 	}

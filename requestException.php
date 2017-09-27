@@ -17,12 +17,14 @@
 
 
 	<label for="servers">What server do you need withheld from the scheduled update?</label>
-    <select id="servers" name="server-select">
+    <select multiple id="server-exceptions" name="server-select[]">
     <?php
         $id =$_GET['id'];
         $servers = getChangeServers($id);
+        // I don't know why this is the only way that works right now
         foreach($servers as $s) {
-           echo ("<option value='$s[servers]'>$s[servers]</option>");
+           $list = explode(" ", $s[servers]);
+            foreach($list as $item) { echo ("<option value='$item'>$item</option>"); }
         }
     ?>
     </select>      
@@ -43,8 +45,8 @@
 	<input type='time' name='altTime' placeholder=""/>
 
 	<br/>
-
-	<div class='item' style='border: none;'>
+    <input hidden=true name='id' value=<?php echo($_GET['id'])?> />
+	<div style='border: none;'>
 	  <input style='color: white;' class='button' type='submit' value="submit"/>
 	</div>
   </form>

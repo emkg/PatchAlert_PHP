@@ -64,6 +64,8 @@ function getChangeServers($changeID) {
         }
     }
 
+    //$servers = explode(" ", $servers);
+
     return $servers;
 }
 //*************************************************/

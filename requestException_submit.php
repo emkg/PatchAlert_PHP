@@ -1,8 +1,8 @@
 <?php
 
-	$username = "admin";
-	$password = "local";
-	$hostname = "localhost";
+$username = "admin";
+$password = "local";
+$hostname = "localhost";
 
   	//connection to the database
   	$db = new mysqli($hostname, $username, $password, "patchA");
@@ -17,17 +17,24 @@
 		}
 	}
 
+    $servers = "'";
+    foreach( $_POST['server-select'] as $s ) {
+        $servers .= "$s ";
+    }
+    $servers .= "'";
+
 	$sql  = "INSERT into EXCEPTIONS SET";
 	$sql .= " User='" . $_POST['user'] . "',";
-	$sql .= " Server='" . $_POST['server'] . "',";
+	$sql .= " Server=" . $servers . ",";
 	$sql .= " Reason='" . $_POST['reason'] . "',";
 	$sql .= " Date='" . $_POST['altDate'] . "',";
 	$sql .= " Time='" . $_POST['altTime'] . "',";
 	$sql .= " isApproved=0,";
+    $sql .= " change_id =" . $_POST['id'] . ",";
 	$sql .= " time_requested=CURRENT_TIMESTAMP()";
 
 	if ($db->query($sql)) {
-		echo "New record created successfully";
+        header('Location: https://intranet.nssl.noaa.gov/its/server-news/');
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($db);
 	}
