@@ -5,7 +5,7 @@
 <?php require('html_elements.php'); ?>
 <div class='page-container'>
 
-
+<div class='item'>
 <?php  
  $elements = getChangeElements(false);
  if ( $elements ) { 
@@ -19,10 +19,11 @@
 	echo($no_alerts_element); 
   } 
 ?>
+</div>
 
 <br/>
 
-<a href='admin-index.php' style='color: #0E5CC9; text-decoration: underline;'>
+<a href='admin-index.php' style='color: black; text-decoration: underline;'>
 	Admin Entrance (restricted access)
 </a>
 </div>

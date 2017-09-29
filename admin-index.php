@@ -7,14 +7,12 @@
      
 <?php 
 
-$changeElements = getChangeElements(true);
-if($changeElements) { echo("<p style='padding: 1px;'><span style='font-weight: bold;'>New</span> Changes to Approve:</p>"); } 
-else { echo("<div class='admin-item'> <p style='padding: 1px;'>No changes to approve</p></div>"); }
-foreach( $changeElements as $e ) {
+$elements = getChangeElements(true);
+if($elements) { echo("<p style='padding: 1px;'><span style='font-weight: bold;'>New</span> Changes to Approve:</p>"); } 
+else { echo("<div class='admin-item'> <span class='nothing-to-see'>There are no changes pending.</span></div>"); }
+foreach( $elements as $e ) {
 	echo $e;
 }
-
-$requestData;
 	
 ?>
   
