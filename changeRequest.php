@@ -15,7 +15,8 @@
 	  What additional resources and/or costs will be required, if any?
 	  <br/><br/>
 	  <textarea type='text' name='resources' rows='4'></textarea> <br/>
-	  <input type='text' name='user' placeholder='Your name:'/>
+	  <input type='text' name='user' placeholder='Your name:'/> <br/>
+	  <input type='text' name='email' placeholder='Your email:'/>
 	  <br/>
 	<div class='button' >
         <a class='button-text' onClick="document.change.submit()">SUBMIT</a>

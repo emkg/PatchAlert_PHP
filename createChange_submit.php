@@ -1,8 +1,8 @@
 <?php
 
-$username = "admin";
-$password = "local";
-$hostname = "localhost";
+	$username = "admin";
+	$password = "local";
+	$hostname = "localhost";
 
   	//connection to the database
   	$db = new mysqli($hostname, $username, $password, "patchA");
@@ -34,8 +34,27 @@ $hostname = "localhost";
 	$sql .= " reason='$reason',";
     $sql .= " resources='$resources'";
 
+    $message = "<html><body>";
+    $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+    $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . strip_tags($user) . "</td></tr>";
+    $message .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($_POST['email']) . "</td></tr>";
+    $message .= "<tr><td><strong>Type of Change:</strong> </td><td>" . $reason . "</td></tr>";
+    $message .= "<tr><td><strong>Resources:</strong> </td><td>" . $resources . "</td></tr>";
+    $message .= "<tr><td><strong>Affected systems:</strong> </td><td>" . $servers . "</td></tr>";
+    $message .= "</table>";
+    $message .= "</body></html>";
+
+    $to = "emily.grimes@noaa.gov";
+
+    $header = "From: " . $_POST['email'] . "\r\n";
+    $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+    $subject = "A change has been requested";
+
+
 	if ($db->query($sql)) {
-		header('Location: https://intranet.nssl.noaa.gov/its/server-news/admin-index.php' );
+		mail($to, $subject, $message, $header);
+        header('Location: https://intranet.nssl.noaa.gov/its/server-news/admin-index.php' );
 	} else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($db);
 	}
