@@ -14,21 +14,23 @@ function getChangeElements($isAdminOptics) {
                     $servers = explode(" ", $a[servers]);    
 
                     $change_element = "<div class='admin-item'>
-                    <h4> REASON:        <span style='font-weight: normal;'>$a[reason]</span></h4>
-                    <h4> RESOURCES:    <span style='font-weight: normal;'>$a[resources]</span></h4>
-                    <h4> REQUESTED BY: <span style='font-weight: normal;'>$a[createdBy]</span></h4>
-                    <h4> AFFECTED SYSTEMS: </h4>
+                    <h4> WHAT and WHY:        <span style='font-weight: normal;'>$a[whatwhy]</span></h4>
+                    <h4> SUGGESTED PLAN:    <span style='font-weight: normal;'>$a[how]</span></h4>
+                    <h4> AFFECTED SYSTEMS:    <span style='font-weight: normal;'>$a[software_systems]</span></h4>
+                    <h4> EXPECTED DURATION:    <span style='font-weight: normal;'>$a[duration]</span></h4>
+                    <h4> REQUESTED BY: <span style='font-weight: normal;'>$a[requestedBy]</span></h4>
+                    <h4> SPECIFIC AFFECTED SYSTEMS: </h4>
                     <div class='scrolly-list'>";
                     foreach($servers as $s) { 
                         $change_element .= "<div class='scrolly-list-item'> <div style='padding: 8px;'> $s </div></div>"; 
                     }
 
                     $change_element .= "</div><br/><div>
-                        <a class='img-link' href='createAlert.php?id=$a[id]'>
-                            <img id='thumb-down' src='img/ic_thumb_down_black_24px.svg' alt='Deny'/>
+                        <a class='img-link' href='declineAlert.php?id=$a[id]'>
+                            <img id='thumb-down' src='../img/ic_thumb_down_black_24px.svg' alt='Deny'/>
                         </a>
                         <a href='createAlert.php?id=$a[id]' class='img-link'>
-                            <img id='thumb-up' src='img/ic_thumb_up_black_24px.svg' alt='Approve'/>
+                            <img id='thumb-up' src='../img/ic_thumb_up_black_24px.svg' alt='Approve'/>
                         </a> 
                       
                    </div>
@@ -40,7 +42,7 @@ function getChangeElements($isAdminOptics) {
 			
 		} else {
 			foreach($changes as $c) {
-				if($c[isApproved]) { // if not presented to admins, we only want "alerts", or approved changes
+				if($c[isApproved] > 0) { // if not presented to admins, we only want "alerts", or approved changes
 					// get the list of servers
                     $servers = explode(" ", $c[servers]);  
                     

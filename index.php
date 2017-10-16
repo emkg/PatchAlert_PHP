@@ -23,7 +23,7 @@
 
 <br/>
 
-<a href='admin-index.php' style='color: black; text-decoration: underline;'>
+<a href='admin/admin-index.php' style='color: black; text-decoration: underline;'>
 	Admin Entrance (restricted access)
 </a>
 </div>

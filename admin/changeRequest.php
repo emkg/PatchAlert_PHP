@@ -1,20 +1,21 @@
-<?php require('top.php'); ?>
-<?php require('db_ops.php'); ?>
+<?php require('../top.php'); ?>
+<?php require('../db_ops.php'); ?>
 <!-- main content -->
 <div class='page-container'>
   <form method='POST' name='change' id='change' action='createChange_submit.php' enctype='multipart/form-data'>
 	  <h3>Request a change:</h3>
-	  <p>What is the justification for why the request is being made, 
-	  including any alternative approaches that were considered, 
-	  and the implications of not making the change?</p>
-	  <br/>
-	  <textarea type='text' rows='4' name='reason'></textarea> <br/>
-	  What servers will be affected? <br/><br/>
+	  <p>What are the details of this request? Why should this change be implemented? 
+	  Please include the consequences of not implementing this change.</p>
+	  <textarea type='text' rows='5' name='whatwhy'></textarea>
+      <p>Provide a suggested implementation plan including contingency (rollback) plans.</p>
+	  <textarea type='text' name='how' rows='5'></textarea>
+      <p>What is the timeframe for this change?</p>
+	  <textarea type='text' rows='2' name='duration'></textarea> 
+	  <p>What software systems will be affected (if known)?</p>
+	  <textarea type='text' rows='2' name='software'></textarea>
+	  <p>What servers will be affected?</p>
       <div id="multi-select-container" name="server-select"></div> 
-	  <br/>
-	  What additional resources and/or costs will be required, if any?
-	  <br/><br/>
-	  <textarea type='text' name='resources' rows='4'></textarea> <br/>
+      <br/>
 	  <input type='text' name='user' placeholder='Your name:'/> <br/>
 	  <input type='text' name='email' placeholder='Your email:'/>
 	  <br/>
@@ -119,4 +120,4 @@
 
 </script>
 
-<?php require('bottom.php'); ?>
+<?php require('../bottom.php'); ?>

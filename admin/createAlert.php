@@ -1,4 +1,4 @@
-<?php require('top.php'); ?>
+<?php require('../top.php'); ?>
 
 <!-- main content -->
 <div class='page-container'>
@@ -14,7 +14,7 @@
 	  <input type='text' name='user' placeholder='Your name:' />
 	  <br/>
       <input hidden=true name='id' value=<?php echo($_GET['id']) ?> />
-      <div class='button' style='width: 90%; float: left;'> <a class="button-text" onClick="document.change.submit();">SUBMIT<a/></div>
+      <div class='button'> <a class="button-text" onClick="document.change.submit();">SUBMIT<a/></div>
   </form>
 </div>
 <!-- end main content -->
@@ -22,9 +22,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   $( function() {
-    $( "#datepicker" ).datepicker({ dateFormat: 'yy-dd-mm' }).val();;
+    $( "#datepicker" ).datepicker().val();
   } );
 </script>
 
 
-<?php require('bottom.php'); ?>
+<?php require('../bottom.php'); ?>
